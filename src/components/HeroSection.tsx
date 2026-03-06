@@ -93,18 +93,9 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-2"
-          >
-            <TypeWriter text="Pedro" className="text-foreground" delay={600} />
-          </motion.h1>
-
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8"
           >
-            <TypeWriter text="Coltro" className="gradient-text glow-text" delay={1200} />
+            <TypeWriter text="Pedro Coltro" className="gradient-text glow-text" delay={600} />
             {showCursor && (
               <motion.span
                 animate={{ opacity: [1, 0] }}
