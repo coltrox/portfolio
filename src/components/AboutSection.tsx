@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Palette, Rocket, GraduationCap } from "lucide-react";
+import { Code2, Palette, Rocket, GraduationCap, CheckCircle2, Users } from "lucide-react";
 
 const skills = [
-  { category: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "Next.js"] },
-  { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "APIs REST"] },
+  { category: "Frontend", items: ["JavaScript", "React", "TypeScript", "Tailwind CSS"] },
+  { category: "Backend", items: ["Node.js", "Python", "SQL", "PostgreSQL", "APIs REST"] },
   { category: "Ferramentas", items: ["Git", "VS Code", "Figma", "Docker"] },
 ];
 
 const highlights = [
-  { icon: Code2, title: "Full Stack", desc: "Desenvolvimento completo de aplicações web" },
-  { icon: Palette, title: "UI/UX", desc: "Interfaces modernas e responsivas" },
+  { icon: CheckCircle2, title: "18 Projetos", desc: "Aplicações completas e concluídas" },
+  { icon: Users, title: "SaaS Ativo", desc: "App de treino com clientes reais" },
   { icon: Rocket, title: "Performance", desc: "Código otimizado e escalável" },
-  { icon: GraduationCap, title: "ETEC", desc: "Estudante na Bento Quirino" },
+  { icon: GraduationCap, title: "Formação", desc: "Concluindo Sistemas na ETEC" },
 ];
 
 const AboutSection = () => {
@@ -43,14 +43,15 @@ const AboutSection = () => {
           >
             <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
               Olá! Sou o <span className="text-foreground font-medium">Pedro Coltro</span>, um desenvolvedor
-              full stack apaixonado por tecnologia e inovação. Atualmente estudo na
-              <span className="text-primary font-medium"> ETEC Bento Quirino</span>, onde aprimoro minhas
-              habilidades em desenvolvimento de software.
+              full stack focado em resultados. Atualmente estou concluindo o curso de desenvolvimento de sistemas na
+              <span className="text-primary font-medium"> ETEC Bento Quirino</span>.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-10">
-              Meu foco é criar experiências digitais que combinam design elegante com funcionalidade
-              robusta. Acredito que o melhor código é aquele que resolve problemas reais de forma
-              eficiente e acessível.
+              Com um portfólio de <span className="text-foreground font-medium">18 projetos concluídos</span>, 
+              minha experiência vai além da teoria. Atualmente, estou desenvolvendo um 
+              <span className="text-primary font-medium"> SaaS focado em treinos para personais</span>, 
+              um projeto que já está em operação e validado por <span className="text-foreground font-medium">clientes reais</span>, 
+              unindo gestão eficiente e tecnologia de ponta.
             </p>
 
             <div className="grid grid-cols-2 gap-4">
@@ -110,9 +111,9 @@ const AboutSection = () => {
               </div>
               <div className="space-y-1 text-muted-foreground">
                 <p><span className="text-primary">const</span> <span className="text-foreground">pedro</span> = {"{"}</p>
-                <p className="pl-4"><span className="text-accent">role</span>: <span className="text-primary/70">"Full Stack Dev"</span>,</p>
-                <p className="pl-4"><span className="text-accent">escola</span>: <span className="text-primary/70">"ETEC Bento Quirino"</span>,</p>
-                <p className="pl-4"><span className="text-accent">paixão</span>: <span className="text-primary/70">"Criar coisas incríveis"</span></p>
+                <p className="pl-4"><span className="text-accent">status</span>: <span className="text-primary/70">"Finalizando ETEC"</span>,</p>
+                <p className="pl-4"><span className="text-accent">projetos</span>: <span className="text-primary/70">18</span>,</p>
+                <p className="pl-4"><span className="text-accent">saas_atual</span>: <span className="text-primary/70">"App de Treino (Live)"</span></p>
                 <p>{"};"}</p>
               </div>
             </motion.div>

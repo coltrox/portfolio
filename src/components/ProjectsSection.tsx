@@ -1,43 +1,61 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Github, Database, Smartphone, Zap, Heart, Layout } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Plataforma completa de e-commerce com carrinho, pagamentos e painel administrativo.",
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    color: "from-primary/20 to-accent/10",
+    title: "ShapeTrack Pro",
+    description: "SaaS de alta performance focado em 'Data-Driven Bodybuilding' com clientes reais. Monitora treinos, dieta e evolução biométrica.",
+    tags: ["React", "Supabase", "Tailwind CSS", "Recharts"],
+    github: "https://github.com/coltrox/shape-track-pro",
+    link: "https://shapetrack.vercel.app/",
+    icon: Zap,
+    color: "from-orange-500/20 to-red-500/10",
   },
   {
-    title: "Task Manager App",
-    description: "Aplicativo de gerenciamento de tarefas com drag-and-drop e colaboração em tempo real.",
-    tags: ["TypeScript", "Next.js", "Prisma", "WebSocket"],
-    color: "from-accent/20 to-primary/10",
+    title: "PetLar - IA & IoT",
+    description: "Sistema de adoção consciente que utiliza IA para match comportamental e Smart Tags (NFC/QR) para prontuário médico digital.",
+    tags: ["n8n", "AI Agents", "Mobile", "IoT"],
+    github: "https://github.com/coltrox/Pet-Lar",
+    link: "https://github.com/coltrox/Pet-Lar",
+    icon: Heart,
+    color: "from-blue-500/20 to-cyan-500/10",
   },
   {
-    title: "Portfolio Generator",
-    description: "Ferramenta para criar portfólios profissionais de forma rápida e customizável.",
-    tags: ["React", "Tailwind", "Framer Motion"],
-    color: "from-primary/15 to-accent/15",
+    title: "Finance App Hub",
+    description: "Gestão financeira inteligente com análise de dados em tempo real, transformando transações em gráficos intuitivos de saúde financeira.",
+    tags: ["React 18", "TypeScript", "PostgreSQL", "Shadcn/UI"],
+    github: "https://github.com/coltrox/finance-app",
+    link: "https://financeapphub.vercel.app/",
+    icon: Database,
+    color: "from-emerald-500/20 to-teal-500/10",
   },
   {
-    title: "Weather Dashboard",
-    description: "Dashboard interativo de previsão do tempo com gráficos e dados em tempo real.",
-    tags: ["React", "API REST", "Chart.js", "CSS"],
-    color: "from-accent/15 to-primary/20",
+    title: "Aurora Colony Command",
+    description: "Dashboard Sci-Fi HUD simulando o centro de comando de uma colônia em Marte. Arquitetura full-stack desacoplada.",
+    tags: ["Node.js", "React", "Canvas API", "Supabase"],
+    github: "https://github.com/coltrox/colonia",
+    link: "https://coltrox.github.io/colonia/",
+    icon: Layout,
+    color: "from-purple-500/20 to-indigo-500/10",
   },
   {
-    title: "Chat Application",
-    description: "Aplicação de chat em tempo real com suporte a grupos e envio de arquivos.",
-    tags: ["Socket.io", "Express", "MongoDB", "React"],
-    color: "from-primary/20 to-accent/5",
+    title: "MedStudy Hub Pro",
+    description: "Plataforma avançada de organização de estudos focada em produtividade e centralização de materiais.",
+    tags: ["React", "Tailwind", "Productivity"],
+    github: "https://github.com/coltrox/study-hub-pro",
+    link: "https://medstudyhub.vercel.app/",
+    icon: Smartphone,
+    color: "from-yellow-500/20 to-amber-500/10",
   },
   {
-    title: "Blog Platform",
-    description: "Plataforma de blog com editor Markdown, SEO otimizado e sistema de comentários.",
-    tags: ["Next.js", "MDX", "Supabase", "Vercel"],
-    color: "from-accent/10 to-primary/15",
+    title: "Snake Moderno",
+    description: "Recriação do clássico Snake com física fluida, dificuldade progressiva e design glassmorphism em arquivo único.",
+    tags: ["JavaScript Puro", "HTML5 Canvas", "CSS3"],
+    github: "https://github.com/coltrox/Snake-Game",
+    link: "https://coltrox.github.io/Snake-Game/",
+    icon: Zap,
+    color: "from-pink-500/20 to-rose-500/10",
   },
 ];
 
@@ -60,6 +78,10 @@ const ProjectsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
             Projetos em <span className="gradient-text">destaque</span>
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl">
+            Uma seleção dos meus melhores trabalhos, incluindo aplicações de mercado, 
+            estudos de caso de IA e experimentos de UI de alto nível.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,38 +91,53 @@ const ProjectsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative rounded-xl glass gradient-border overflow-hidden hover:bg-primary/5 transition-all duration-500"
+              className="group relative rounded-2xl glass gradient-border overflow-hidden hover:bg-primary/5 transition-all duration-500 flex flex-col"
             >
-              {/* Gradient header */}
               <div className={`h-32 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                <Folder size={40} className="text-primary/30 group-hover:text-primary/50 transition-colors duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                <project.icon size={40} className="text-primary/40 group-hover:text-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-6" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] to-transparent opacity-60" />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <div className="flex gap-2">
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub">
-                      <Github size={16} />
+                  
+                  {/* Container de links com Z-Index alto e stopPropagation */}
+                  <div className="flex gap-3 relative z-20">
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-muted-foreground hover:text-primary transition-colors p-1" 
+                      title="Ver código no GitHub"
+                    >
+                      <Github size={20} className="pointer-events-none" />
                     </a>
-                    <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Link externo">
-                      <ExternalLink size={16} />
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-muted-foreground hover:text-primary transition-colors p-1" 
+                      title="Ver projeto online"
+                    >
+                      <ExternalLink size={20} className="pointer-events-none" />
                     </a>
                   </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-auto flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-md text-xs font-mono bg-secondary text-muted-foreground"
+                      className="px-2 py-1 rounded-md text-[10px] font-mono font-medium bg-primary/5 text-primary/80 border border-primary/10"
                     >
                       {tag}
                     </span>
@@ -110,6 +147,25 @@ const ProjectsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.8 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-muted-foreground text-sm">
+            E outros 12+ projetos focados em inovação e performance.
+          </p>
+          <a 
+            href="https://github.com/coltrox?tab=repositories" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 text-primary font-mono text-xs hover:underline underline-offset-4"
+          >
+            VER TODOS NO GITHUB →
+          </a>
+        </motion.div>
       </div>
     </section>
   );

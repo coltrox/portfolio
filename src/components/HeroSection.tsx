@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, Linkedin, Mail, Check } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const TypeWriter = ({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) => {
@@ -36,9 +36,17 @@ const TypeWriter = ({ text, className, delay = 0 }: { text: string; className?: 
 
 const HeroSection = () => {
   const [showCursor, setShowCursor] = useState(true);
+  const [copied, setCopied] = useState(false);
+  const email = "pedrocoltro.dev@gmail.com";
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   useEffect(() => {
-    // Hide final cursor after typing completes (~1.5s for "Pedro" + delay + "Coltro")
     const timer = setTimeout(() => setShowCursor(true), 3000);
     return () => clearTimeout(timer);
   }, []);
@@ -53,7 +61,7 @@ const HeroSection = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[120px] animate-pulse-glow" />
         <div className="absolute bottom-1/3 right-1/3 w-72 h-72 rounded-full bg-accent/8 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[150px]" />
-        {/* Extra floating particles */}
+        
         <motion.div
           animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -63,11 +71,6 @@ const HeroSection = () => {
           animate={{ y: [15, -15, 15], x: [5, -5, 5] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-[30%] left-[20%] w-1.5 h-1.5 rounded-full bg-accent/40"
-        />
-        <motion.div
-          animate={{ y: [-10, 25, -10] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[60%] right-[25%] w-1 h-1 rounded-full bg-primary/50"
         />
       </div>
 
@@ -118,8 +121,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Estudante da <span className="text-primary font-medium">ETEC Bento Quirino</span> apaixonado por
-            transformar ideias em experiências digitais incríveis com código limpo e design moderno.
+            Estou no último ano do curso de <span className="text-primary font-medium">Desenvolvimento de Sistemas pela ETEC Bento Quirino</span>. 
+            Gosto de colocar em prática minhas ideias e criar apps bonitos e úteis para o dia a dia!
           </motion.p>
 
           <motion.div
@@ -135,6 +138,7 @@ const HeroSection = () => {
               <span className="relative z-10">Ver Projetos</span>
               <div className="absolute inset-0 bg-accent/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </a>
+            
             <a
               href="#contact"
               className="px-8 py-3.5 rounded-xl border border-border text-foreground font-medium text-sm hover:border-primary/50 hover:text-primary hover:glow-box transition-all duration-300"
@@ -149,36 +153,80 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.1 }}
             className="flex items-center justify-center gap-4"
           >
-            {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
-              { icon: Mail, href: "#", label: "Email" },
-            ].map(({ icon: Icon, href, label }, i) => (
-              <motion.a
-                key={label}
-                href={href}
+            <motion.a
+              href="https://github.com/coltrox?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 }}
+              className="p-3 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all duration-300"
+              aria-label="GitHub"
+            >
+              <Github size={20} />
+            </motion.a>
+
+            <motion.a
+              href="https://www.linkedin.com/in/pedro-henrique-soares-da-costa-coltro-497833386/"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.3 }}
+              className="p-3 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all duration-300"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </motion.a>
+
+            <div className="relative">
+              <AnimatePresence>
+                {copied && (
+                  <motion.span
+                    initial={{ opacity: 0, y: 10, x: "-50%" }}
+                    animate={{ opacity: 1, y: -45, x: "-50%" }}
+                    exit={{ opacity: 0, y: 10, x: "-50%" }}
+                    className="absolute left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-primary-foreground text-[10px] font-bold rounded-md whitespace-nowrap shadow-lg pointer-events-none"
+                  >
+                    E-mail copiado!
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rotate-45" />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+
+              <motion.button
+                onClick={handleCopyEmail}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2 + i * 0.1 }}
-                className="p-3 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all duration-300"
-                aria-label={label}
+                transition={{ delay: 1.4 }}
+                className="p-3 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all duration-300 relative"
+                aria-label="Copiar Email"
               >
-                <Icon size={20} />
-              </motion.a>
-            ))}
+                <AnimatePresence mode="wait" initial={false}>
+                  {copied ? (
+                    <motion.div
+                      key="check"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.5, opacity: 0 }}
+                    >
+                      <Check size={20} className="text-primary" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="mail"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.5, opacity: 0 }}
+                    >
+                      <Mail size={20} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.button>
+            </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <a href="#about" className="text-muted-foreground hover:text-primary transition-colors animate-float">
-            <ArrowDown size={20} />
-          </a>
-        </motion.div>
       </div>
     </section>
   );
