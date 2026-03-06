@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#home" className="text-xl font-bold tracking-tighter group">
           <span className="text-primary group-hover:text-foreground transition-colors">&lt;</span>
-          <span className="gradient-text font-mono">Pedro</span>
+          <span className="gradient-text font-mono">Pedro Coltro</span>
           <span className="text-primary group-hover:text-foreground transition-colors"> /&gt;</span>
         </a>
 
