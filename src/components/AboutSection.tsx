@@ -105,8 +105,8 @@ const AboutSection = () => {
             >
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                <div className="w-3 h-3 rounded-full bg-accent/60" />
+                <div className="w-3 h-3 rounded-full bg-primary/60" />
               </div>
               <div className="space-y-1 text-muted-foreground">
                 <p><span className="text-primary">const</span> <span className="text-foreground">pedro</span> = {"{"}</p>
