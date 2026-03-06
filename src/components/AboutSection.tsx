@@ -110,9 +110,9 @@ const AboutSection = () => {
               </div>
               <div className="space-y-1 text-muted-foreground">
                 <p><span className="text-primary">const</span> <span className="text-foreground">pedro</span> = {"{"}</p>
-                <p className="pl-4"><span className="text-accent">role</span>: <span className="text-green-400">"Full Stack Dev"</span>,</p>
-                <p className="pl-4"><span className="text-accent">escola</span>: <span className="text-green-400">"ETEC Bento Quirino"</span>,</p>
-                <p className="pl-4"><span className="text-accent">paixão</span>: <span className="text-green-400">"Criar coisas incríveis"</span></p>
+                <p className="pl-4"><span className="text-accent">role</span>: <span className="text-primary/70">"Full Stack Dev"</span>,</p>
+                <p className="pl-4"><span className="text-accent">escola</span>: <span className="text-primary/70">"ETEC Bento Quirino"</span>,</p>
+                <p className="pl-4"><span className="text-accent">paixão</span>: <span className="text-primary/70">"Criar coisas incríveis"</span></p>
                 <p>{"};"}</p>
               </div>
             </motion.div>
