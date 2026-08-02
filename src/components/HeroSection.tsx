@@ -87,7 +87,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-5 py-2 rounded-full text-xs font-mono font-medium tracking-widest uppercase bg-primary/10 text-primary border border-primary/20 mb-10 glow-box">
+            <span className="inline-block px-4 sm:px-5 py-2 rounded-full text-[10px] sm:text-xs font-mono font-medium tracking-widest uppercase bg-primary/10 text-primary border border-primary/20 mb-6 sm:mb-10 glow-box">
               ⚡ Full Stack Developer
             </span>
           </motion.div>
@@ -96,7 +96,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 sm:mb-8"
           >
             <TypeWriter text="Pedro Coltro" className="gradient-text glow-text" delay={600} />
             {showCursor && (
@@ -119,7 +119,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed"
           >
             Estou no último ano do curso de <span className="text-primary font-medium">Desenvolvimento de Sistemas pela ETEC Bento Quirino</span>. 
             Gosto de colocar em prática minhas ideias e criar apps bonitos e úteis para o dia a dia!
@@ -129,19 +129,19 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="flex items-center justify-center gap-5 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 sm:mb-16 w-full max-w-xs sm:max-w-none mx-auto"
           >
             <a
               href="#projects"
-              className="group relative px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-medium text-sm transition-all duration-300 glow-box overflow-hidden"
+              className="group relative w-full sm:w-auto text-center px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-medium text-sm transition-all duration-300 glow-box overflow-hidden active:scale-[0.98]"
             >
               <span className="relative z-10">Ver Projetos</span>
               <div className="absolute inset-0 bg-accent/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </a>
-            
+
             <a
               href="#contact"
-              className="px-8 py-3.5 rounded-xl border border-border text-foreground font-medium text-sm hover:border-primary/50 hover:text-primary hover:glow-box transition-all duration-300"
+              className="w-full sm:w-auto text-center px-8 py-3.5 rounded-xl border border-border text-foreground font-medium text-sm hover:border-primary/50 hover:text-primary hover:glow-box transition-all duration-300 active:scale-[0.98]"
             >
               Contato
             </a>

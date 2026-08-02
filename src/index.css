@@ -56,9 +56,16 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
   }
 
   ::selection {

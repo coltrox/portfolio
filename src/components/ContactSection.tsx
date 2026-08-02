@@ -40,7 +40,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden" ref={ref}>
+    <section id="contact" className="py-20 sm:py-24 md:py-32 relative overflow-hidden scroll-mt-16" ref={ref}>
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">
@@ -51,15 +51,15 @@ const ContactSection = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <span className="text-xs font-mono text-primary tracking-widest uppercase">Contato</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-6">
             Vamos <span className="gradient-text">conversar?</span>
           </h2>
-          <p className="text-muted-foreground mb-16 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground mb-10 sm:mb-16 text-base sm:text-lg max-w-2xl mx-auto">
             Estou disponível para novas oportunidades de mercado, projetos Full Stack 
             ou para trocar uma ideia sobre o ecossistema SaaS e IA.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
             {contactLinks.map((link, i) => (
               <motion.a
                 key={link.label}
@@ -126,7 +126,7 @@ const ContactSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-lg hover:shadow-[0_0_30px_-5px_rgba(var(--primary),0.5)] transition-all glow-box"
+              className="inline-flex items-center justify-center gap-3 w-full max-w-xs sm:max-w-none sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-base sm:text-lg hover:shadow-[0_0_30px_-5px_rgba(var(--primary),0.5)] transition-all glow-box"
             >
               <Send size={20} />
               Enviar E-mail Direto
@@ -135,7 +135,7 @@ const ContactSection = () => {
         </motion.div>
       </div>
 
-      <footer className="mt-32 border-t border-border/40 py-10 text-center">
+      <footer className="mt-20 sm:mt-32 border-t border-border/40 py-10 text-center">
         <p className="text-xs font-mono text-muted-foreground">
           © {new Date().getFullYear()} • Pedro Coltro • Full Stack Developer
         </p>

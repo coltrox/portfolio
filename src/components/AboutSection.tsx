@@ -21,21 +21,21 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
   return (
-    <section id="about" className="py-32 relative" ref={ref}>
+    <section id="about" className="py-20 sm:py-24 md:py-32 relative scroll-mt-16" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12 sm:mb-16"
         >
           <span className="text-xs font-mono text-primary tracking-widest uppercase">Sobre mim</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3">
             Construindo o <span className="gradient-text">futuro digital</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -54,7 +54,7 @@ const AboutSection = () => {
               unindo gestão eficiente e tecnologia de ponta.
             </p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {highlights.map(({ icon: Icon, title, desc }, i) => (
                 <motion.div
                   key={title}
