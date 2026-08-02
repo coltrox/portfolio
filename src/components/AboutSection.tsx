@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Palette, Rocket, GraduationCap, CheckCircle2, Users } from "lucide-react";
+import { Rocket, GraduationCap, CheckCircle2, PawPrint } from "lucide-react";
 
 const skills = [
   { category: "Frontend", items: ["JavaScript", "React", "TypeScript", "Tailwind CSS"] },
@@ -11,7 +11,7 @@ const skills = [
 
 const highlights = [
   { icon: CheckCircle2, title: "18 Projetos", desc: "Aplicações completas e concluídas" },
-  { icon: Users, title: "SaaS Ativo", desc: "App de treino com clientes reais" },
+  { icon: PawPrint, title: "Nima", desc: "Ecossistema de adoção com IA & IoT" },
   { icon: Rocket, title: "Performance", desc: "Código otimizado e escalável" },
   { icon: GraduationCap, title: "Formação", desc: "Concluindo Sistemas na ETEC" },
 ];
@@ -47,11 +47,11 @@ const AboutSection = () => {
               <span className="text-primary font-medium"> ETEC Bento Quirino</span>.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-10">
-              Com um portfólio de <span className="text-foreground font-medium">18 projetos concluídos</span>, 
-              minha experiência vai além da teoria. Atualmente, estou desenvolvendo um 
-              <span className="text-primary font-medium"> SaaS focado em treinos para personais</span>, 
-              um projeto que já está em operação e validado por <span className="text-foreground font-medium">clientes reais</span>, 
-              unindo gestão eficiente e tecnologia de ponta.
+              Com um portfólio de <span className="text-foreground font-medium">18 projetos concluídos</span>,
+              minha experiência vai além da teoria. Meu principal projeto é o
+              <span className="text-primary font-medium"> Nima</span>, um ecossistema multiplataforma de adoção de pets
+              que une <span className="text-foreground font-medium">Inteligência Artificial</span> para match comportamental
+              e <span className="text-foreground font-medium">IoT (Smart Tags)</span> para segurança antiperda.
             </p>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -113,7 +113,7 @@ const AboutSection = () => {
                 <p><span className="text-primary">const</span> <span className="text-foreground">pedro</span> = {"{"}</p>
                 <p className="pl-4"><span className="text-accent">status</span>: <span className="text-primary/70">"Finalizando ETEC"</span>,</p>
                 <p className="pl-4"><span className="text-accent">projetos</span>: <span className="text-primary/70">18</span>,</p>
-                <p className="pl-4"><span className="text-accent">saas_atual</span>: <span className="text-primary/70">"App de Treino (Live)"</span></p>
+                <p className="pl-4"><span className="text-accent">projeto_principal</span>: <span className="text-primary/70">"Nima (IA + IoT)"</span></p>
                 <p>{"};"}</p>
               </div>
             </motion.div>

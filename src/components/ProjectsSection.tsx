@@ -4,6 +4,15 @@ import { ExternalLink, Github, Dumbbell, BookOpen, Wallet, Server, PawPrint, Loc
 
 const projects = [
   {
+    title: "Nima — IA & IoT",
+    description: "Meu projeto principal: ecossistema multiplataforma de adoção de pets com IA para match comportamental entre tutor e animal e Smart Tags (IoT) para segurança antiperda.",
+    tags: ["React Native", "Expo", "n8n", "OpenAI", "IoT"],
+    github: "https://github.com/coltrox/app-nima",
+    link: "https://github.com/coltrox/nima-web",
+    icon: PawPrint,
+    color: "from-blue-500/20 to-cyan-500/10",
+  },
+  {
     title: "ShapeTrack Pro",
     description: "SaaS de alta performance focado em 'Data-Driven Bodybuilding' com clientes reais. Monitora treinos, dieta e evolução biométrica.",
     tags: ["React", "Supabase", "Tailwind CSS", "Recharts"],
@@ -11,15 +20,6 @@ const projects = [
     link: "https://shapetrack.vercel.app/",
     icon: Dumbbell,
     color: "from-orange-500/20 to-red-500/10",
-  },
-  {
-    title: "Nima — IA & IoT",
-    description: "Ecossistema multiplataforma de adoção de pets: IA para match comportamental entre tutor e animal e Smart Tags (IoT) para segurança antiperda.",
-    tags: ["React Native", "Expo", "n8n", "OpenAI", "IoT"],
-    github: "https://github.com/coltrox/app-nima",
-    link: "https://github.com/coltrox/nima-web",
-    icon: PawPrint,
-    color: "from-blue-500/20 to-cyan-500/10",
   },
   {
     title: "Finance App",
@@ -92,8 +92,15 @@ const ProjectsSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -6 }}
-              className="group relative rounded-2xl glass gradient-border overflow-hidden hover:bg-primary/5 hover:shadow-[0_20px_40px_-15px_hsl(var(--primary)/0.3)] transition-all duration-500 flex flex-col"
+              className={`group relative rounded-2xl glass gradient-border overflow-hidden hover:bg-primary/5 hover:shadow-[0_20px_40px_-15px_hsl(var(--primary)/0.3)] transition-all duration-500 flex flex-col ${
+                i === 0 ? "ring-1 ring-primary/40 shadow-[0_0_30px_-10px_hsl(var(--primary)/0.4)]" : ""
+              }`}
             >
+              {i === 0 && (
+                <span className="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-primary text-primary-foreground shadow-lg">
+                  ★ Projeto principal
+                </span>
+              )}
               <div className={`h-32 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
                 <project.icon size={40} className="text-primary/40 group-hover:text-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-6" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] to-transparent opacity-60" />

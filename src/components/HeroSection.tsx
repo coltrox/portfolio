@@ -121,8 +121,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed"
           >
-            Estou no último ano do curso de <span className="text-primary font-medium">Desenvolvimento de Sistemas pela ETEC Bento Quirino</span>. 
-            Gosto de colocar em prática minhas ideias e criar apps bonitos e úteis para o dia a dia!
+            Estou no último ano do curso de <span className="text-primary font-medium">Desenvolvimento de Sistemas pela ETEC Bento Quirino</span>.
+            Gosto de transformar ideias em produtos reais — meu foco atual é o <span className="text-primary font-medium">Nima</span>, um ecossistema de adoção de pets com IA e IoT.
           </motion.p>
 
           <motion.div
