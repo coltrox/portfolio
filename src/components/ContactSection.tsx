@@ -8,6 +8,11 @@ const ContactSection = () => {
   const [copied, setCopied] = useState(false);
 
   const email = "pedrocoltro.dev@gmail.com";
+  const whatsappQuote = `https://wa.me/5519996640912?text=${encodeURIComponent(
+    "Olá Pedro! Vim pelo seu portfólio e gostaria de um orçamento para um projeto (automação / web / SaaS)."
+  )}`;
+
+  const services = ["Automação & IA", "Web & SaaS", "APIs & Integrações", "Dashboards"];
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -17,6 +22,12 @@ const ContactSection = () => {
   };
 
   const contactLinks = [
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: "Orçamento rápido",
+      href: whatsappQuote,
+    },
     {
       icon: Mail,
       label: "E-mail",
@@ -30,12 +41,6 @@ const ContactSection = () => {
       label: "LinkedIn",
       value: "in/pedro-coltro",
       href: "https://www.linkedin.com/in/pedro-henrique-soares-da-costa-coltro-497833386/",
-    },
-    {
-      icon: MessageCircle,
-      label: "WhatsApp",
-      value: "Enviar mensagem",
-      href: "https://wa.me/5519996640912",
     }
   ];
 
@@ -50,14 +55,26 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <span className="text-xs font-mono text-primary tracking-widest uppercase">Contato</span>
+          <span className="text-xs font-mono text-primary tracking-widest uppercase">Orçamento & Contato</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-6">
-            Vamos <span className="gradient-text">conversar?</span>
+            Bora fazer seu <span className="gradient-text">orçamento?</span>
           </h2>
-          <p className="text-muted-foreground mb-10 sm:mb-16 text-base sm:text-lg max-w-2xl mx-auto">
-            Estou disponível para novas oportunidades de mercado, projetos Full Stack 
-            ou para trocar uma ideia sobre o ecossistema SaaS e IA.
+          <p className="text-muted-foreground mb-6 text-base sm:text-lg max-w-2xl mx-auto">
+            Desenvolvo <span className="text-foreground font-medium">sistemas de automação (n8n + IA)</span>,
+            aplicações <span className="text-foreground font-medium">web e SaaS</span>, APIs e integrações sob medida.
+            Me chama que a gente monta o orçamento do seu projeto rapidinho.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-2 mb-10 sm:mb-16">
+            {services.map((s) => (
+              <span
+                key={s}
+                className="px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-primary/5 text-primary/90 border border-primary/15"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
             {contactLinks.map((link, i) => (
@@ -119,18 +136,34 @@ const ContactSection = () => {
               <span className="text-sm">Campinas, São Paulo - Brasil</span>
             </motion.div>
             
-            <motion.a
-              href={`mailto:${email}`}
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="inline-flex items-center justify-center gap-3 w-full max-w-xs sm:max-w-none sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-base sm:text-lg hover:shadow-[0_0_30px_-5px_rgba(var(--primary),0.5)] transition-all glow-box"
+              className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-xs sm:max-w-none mx-auto"
             >
-              <Send size={20} />
-              Enviar E-mail Direto
-            </motion.a>
+              <motion.a
+                href={whatsappQuote}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-base sm:text-lg hover:shadow-[0_0_30px_-5px_rgba(var(--primary),0.5)] transition-all glow-box"
+              >
+                <MessageCircle size={20} />
+                Solicitar orçamento
+              </motion.a>
+
+              <motion.a
+                href={`mailto:${email}`}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 sm:py-5 rounded-2xl border border-border text-foreground font-medium text-base sm:text-lg hover:border-primary/50 hover:text-primary transition-colors"
+              >
+                <Send size={18} />
+                Enviar e-mail
+              </motion.a>
+            </motion.div>
           </div>
         </motion.div>
       </div>

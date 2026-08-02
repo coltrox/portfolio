@@ -143,7 +143,7 @@ const HeroSection = () => {
               href="#contact"
               className="w-full sm:w-auto text-center px-8 py-3.5 rounded-xl border border-border text-foreground font-medium text-sm hover:border-primary/50 hover:text-primary hover:glow-box transition-all duration-300 active:scale-[0.98]"
             >
-              Contato
+              Orçamento
             </a>
           </motion.div>
 
